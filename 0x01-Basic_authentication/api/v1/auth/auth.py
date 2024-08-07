@@ -15,10 +15,10 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """_summary_
         """
-        return request
+        return None
 
 
     def current_user(self, request=None) -> TypeVar('User'):
         """_summary_
         """
-        return request
+        return None

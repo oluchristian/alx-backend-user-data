@@ -25,7 +25,7 @@ class Auth:
         """
         key = 'Authorization'
         if request is None or key not in request.headers:
-            return None        
+            return None
         return request.headers.get(key)
 
     def current_user(self, request=None) -> None:

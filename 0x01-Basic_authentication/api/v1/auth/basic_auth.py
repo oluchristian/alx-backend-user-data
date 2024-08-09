@@ -23,6 +23,8 @@ class BasicAuth(Auth):
         self,
         base64_authorization_header: str
         ) -> str:
+        """Base64 decode
+        """
         if not isinstance(base64_authorization_header, str):
             return None
         try:

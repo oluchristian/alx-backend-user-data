@@ -37,8 +37,10 @@ def before_request() -> Optional[str]:
         print("something wrong")
         return
     if auth.authorization_header(request) is None:
+        print("auth header")
         return abort(401)
     if auth.current_user(request) is None:
+        print("abort user")
         return abort(403)
 
 

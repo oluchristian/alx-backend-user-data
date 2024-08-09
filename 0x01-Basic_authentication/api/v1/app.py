@@ -31,8 +31,10 @@ def before_request() -> Optional[str]:
         '/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'
         ]
     if auth is None:
+        print("Auth is None")
         return
     if not auth.require_auth(request.path, allowed_paths):
+        print("something wrong")
         return
     if auth.authorization_header(request) is None:
         return abort(401)

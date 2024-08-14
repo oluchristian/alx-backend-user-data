@@ -30,14 +30,19 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email, hashed_password) -> User:
+    def add_user(self, email: str, hashed_password: str) -> User:
         """_summary_
         """
         new_user = User(
             email=email,
             hashed_password = hashed_password
         )
-        session = self.__session
-        session.add(new_user)
-        session.commit()
+        try:
+            session = self.__session
+            session.add(new_user)
+            session.commit()
+        except Exception as e:
+            print(f"Error adding user to database: {e}")
+            self.__session.rollback()
+            raise
         return new_user

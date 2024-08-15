@@ -38,12 +38,12 @@ class DB:
             email=email,
             hashed_password = hashed_password
         )
+        session = self.__session
         try:
-            session = self.__session
             session.add(new_user)
             session.commit()
         except Exception as e:
             print(f"Error adding user to database: {e}")
-            self.__session.rollback()
+            session.rollback()
             raise
         return new_user

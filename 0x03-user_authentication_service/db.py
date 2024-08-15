@@ -38,7 +38,7 @@ class DB:
             email=email,
             hashed_password=hashed_password
         )
-        session = self.__session
+        session = self._session
         try:
             session.add(new_user)
             session.commit()

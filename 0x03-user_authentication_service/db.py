@@ -41,13 +41,8 @@ class DB:
             hashed_password=hashed_password
         )
         session = self._session
-        try:
-            session.add(new_user)
-            session.commit()
-        except Exception as e:
-            print(f"Error adding user to database: {e}")
-            session.rollback()
-            raise
+        session.add(new_user)
+        session.commit()
         return new_user
 
     def find_user_by(self, **kwargs: Dict[str, str]) -> User:

@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import NoResultFound, InvalidRequestError
 from sqlalchemy.orm.session import Session
 from user import Base, User
+from typing import Dict
 
 
 class DB:
@@ -49,7 +50,7 @@ class DB:
             raise
         return new_user
 
-    def find_user_by(self, **kwargs) -> User:
+    def find_user_by(self, **kwargs: Dict[str, str]) -> User:
         """Find user
         """
         try:

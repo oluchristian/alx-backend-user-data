@@ -53,10 +53,11 @@ class DB:
     def find_user_by(self, **kwargs: Dict[str, str]) -> User:
         """Find user
         """
+        session = self._session
         try:
-            user = self._session.query(User).filter_by(**kwargs).one()
+            user = session.query(User).filter_by(**kwargs).one()
         except NoResultFound:
-            raise
+            raise NoResultFound()
         except InvalidRequestError:
-            raise
+            raise InvalidRequestError()
         return user

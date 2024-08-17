@@ -40,3 +40,5 @@ class Auth:
             hashed_password=hashed_password
             )
         return new_user
+
+    def valid

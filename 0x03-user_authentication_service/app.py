@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """Basic Flask app
 """
-
 from flask import Flask, jsonify, request
-from user import User
 from auth import Auth
-from sqlalchemy.orm.exc import NoResultFound
+
 app = Flask(__name__)
 AUTH = Auth()
 
